@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 16px;
+}
+
 /* Remove default margin */
 body,
 h1,
@@ -26,6 +30,8 @@ body {
 
   color: black;
   background-color: white;
+
+  font-family: sans-serif;
 
   /* Font anti-aliasing */
   -webkit-font-smoothing: antialiased;
