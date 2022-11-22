@@ -6,7 +6,6 @@ function Header() {
   return (
     <header className="header">
       <img className="header__icon" src={icon} alt="Home icon" />
-      <span>Image Gallery</span>
     </header>
   );
 }
