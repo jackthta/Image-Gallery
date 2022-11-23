@@ -46,11 +46,7 @@ function Home() {
     return () => document.removeEventListener("scroll", handleScroll);
   }, []);
 
-  return (
-    <div className="home">
-      <Gallery photos={photos} />
-    </div>
-  );
+  return <Gallery photos={photos} />;
 }
 
 export default Home;

@@ -1,0 +1,20 @@
+/* Mobile */
+main {
+  display: grid;
+  place-items: center;
+  gap: 0.5rem;
+}
+
+/* Tablet – 600px */
+@media (min-width: 37.5em) {
+  main {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop – 1024px */
+@media (min-width: 64em) {
+  main {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
