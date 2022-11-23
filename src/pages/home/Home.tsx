@@ -12,14 +12,14 @@ function Home() {
   const [photos, setPhotos] = useState<PhotoType[]>([]);
   const [page, setPage] = useState<number>(1);
 
-  const getPhotos = _.throttle(async function () {
+  const throttledGetPhotos = _.throttle(async function () {
     const newPhotos = await fetchPhotos(page);
-
     setPhotos((p) => [...p, ...newPhotos]);
   }, 300);
 
+  // Fetch `page` of photos every page increment, starting from 1.
   useEffect(() => {
-    getPhotos();
+    throttledGetPhotos();
   }, [page]);
 
   // Watch scroll height to determine whether to fetch
