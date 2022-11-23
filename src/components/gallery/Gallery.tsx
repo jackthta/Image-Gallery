@@ -11,8 +11,8 @@ type Prop = {
 function Gallery({ photos }: Prop) {
   return (
     <>
-      {photos.map((photo) => (
-        <Photo key={photo.id} photo={photo} />
+      {photos.map((photo, index) => (
+        <Photo key={index} photo={photo} />
       ))}
     </>
   );
