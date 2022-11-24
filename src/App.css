@@ -2,13 +2,16 @@
 main {
   display: grid;
   place-items: center;
-  gap: 0.5rem;
+  gap: 3rem;
+
+  padding: 0 1rem;
 }
 
 /* Tablet – 600px */
 @media (min-width: 37.5em) {
   main {
     grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
   }
 }
 
@@ -16,5 +19,6 @@ main {
 @media (min-width: 64em) {
   main {
     grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
   }
 }

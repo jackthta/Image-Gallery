@@ -1,4 +1,4 @@
-import Photo from "../photo/Photo";
+import PhotoCard from "../photo-card/PhotoCard";
 
 import type { PhotoType } from "../../types/unsplash";
 
@@ -12,7 +12,7 @@ function Gallery({ photos }: Prop) {
   return (
     <>
       {photos.map((photo, index) => (
-        <Photo key={index} photo={photo} />
+        <PhotoCard key={index} photo={photo} />
       ))}
     </>
   );
