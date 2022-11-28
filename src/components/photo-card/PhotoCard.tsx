@@ -13,6 +13,8 @@ function PhotoCard({ photo }: Props) {
         className="card__photo"
         src={photo.urls.regular}
         alt={photo.description}
+        loading="lazy"
+        decoding="async"
       />
     </a>
   );
