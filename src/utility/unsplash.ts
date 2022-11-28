@@ -11,3 +11,19 @@ export async function fetchPhotos(page: number): Promise<PhotoType[]> {
 
   return data;
 }
+
+export async function fetchSearchedPhotos(
+  query: string,
+  page: number
+): Promise<PhotoType[]> {
+  const {
+    data: { results },
+  } = await axios.get("/search/photos", {
+    params: {
+      query,
+      page,
+    },
+  });
+
+  return results;
+}

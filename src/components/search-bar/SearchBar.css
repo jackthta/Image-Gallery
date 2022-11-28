@@ -1,0 +1,28 @@
+.search {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  width: 100%;
+  height: 2.5rem;
+  padding: 0.5rem 1rem;
+
+  background-color: #eee;
+  border-radius: 2rem;
+}
+
+.search__icon {
+  width: 1.5rem;
+}
+
+.search__input {
+  width: 100%;
+
+  font-size: 0.9rem;
+
+  background-color: inherit;
+  border: none;
+}
+
+.search__input:focus {
+  outline: none;
+}

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { fetchPhotos } from "../../utility/unsplash";
+import { fetchPhotos, fetchSearchedPhotos } from "../../utility/unsplash";
 import _ from "lodash";
 
 import Gallery from "../../components/gallery/Gallery";
@@ -8,7 +8,11 @@ import type { PhotoType } from "../../types/unsplash";
 
 import "./Home.css";
 
-function Home() {
+type Props = {
+  searchString: string;
+};
+
+function Home({ searchString }: Props) {
   const mobileDimensions = "(max-width: 37.49em)";
   const tabletDimensions = "(min-width: 37.5em) and (max-width: 63.99em)";
   const desktopDimensions = "(min-width: 64em)";
@@ -19,7 +23,12 @@ function Home() {
   const [page, setPage] = useState<number>(1);
 
   const throttledGetPhotos = _.throttle(async function () {
-    const newPhotos = await fetchPhotos(page);
+    let newPhotos: PhotoType[];
+    if (searchString.trim().length === 0) {
+      newPhotos = await fetchPhotos(page);
+    } else {
+      newPhotos = await fetchSearchedPhotos(searchString, page);
+    }
 
     // Mobile — append new photos to single column.
     if (matchMedia(mobileDimensions).matches) {
@@ -99,6 +108,14 @@ function Home() {
   useEffect(() => {
     throttledGetPhotos();
   }, [page]);
+
+  useEffect(() => {
+    // Clear results before every new search.
+    setPhotos([[]]);
+    setPage(1);
+
+    throttledGetPhotos();
+  }, [searchString]);
 
   /**
    * 1. Watch scroll height to determine whether to fetch next page of photos.
