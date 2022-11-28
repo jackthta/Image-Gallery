@@ -11,11 +11,3 @@
 .card__photo {
   border-radius: 1.3rem;
 }
-
-.card__description {
-  margin-top: 0.5rem;
-
-  font-weight: 300;
-  font-style: italic;
-  text-align: center;
-}

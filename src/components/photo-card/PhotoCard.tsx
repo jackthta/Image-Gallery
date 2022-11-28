@@ -7,10 +7,6 @@ type Props = {
 };
 
 function PhotoCard({ photo }: Props) {
-  const PhotoDescription = photo.description && (
-    <p className="card__description">{photo.description}</p>
-  );
-
   return (
     <a className="card" href={photo.user.links.html} target="_blank">
       <img
@@ -18,7 +14,6 @@ function PhotoCard({ photo }: Props) {
         src={photo.urls.regular}
         alt={photo.description}
       />
-      {PhotoDescription}
     </a>
   );
 }
