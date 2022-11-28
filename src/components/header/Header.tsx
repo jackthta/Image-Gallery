@@ -1,4 +1,4 @@
-import icon from "../../../public/favicon.svg";
+import icon from "../../../public/aperture.svg";
 
 import "./Header.css";
 
