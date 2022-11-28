@@ -1,4 +1,4 @@
-// Note: cherry-picked specific properties I think would be needed
+// Note: cherry-picked specific properties thought would be needed
 export type PhotoType = {
   id: string;
   description: string;
@@ -11,5 +11,10 @@ export type PhotoType = {
     regular: string;
     small: string;
     thumb: string;
+  };
+  user: {
+    links: {
+      html: string;
+    };
   };
 };

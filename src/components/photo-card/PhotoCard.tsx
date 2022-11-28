@@ -12,14 +12,14 @@ function PhotoCard({ photo }: Props) {
   );
 
   return (
-    <div className="card">
+    <a className="card" href={photo.user.links.html} target="_blank">
       <img
         className="card__photo"
         src={photo.urls.regular}
         alt={photo.description}
       />
       {PhotoDescription}
-    </div>
+    </a>
   );
 }
 
