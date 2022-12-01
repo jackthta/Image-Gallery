@@ -24,6 +24,12 @@ dd {
   margin: 0;
 }
 
+/* Remove some <dialog> defaults */
+dialog {
+  padding: 0;
+  border: none;
+}
+
 body {
   min-height: 100vh;
   line-height: 1.5;
