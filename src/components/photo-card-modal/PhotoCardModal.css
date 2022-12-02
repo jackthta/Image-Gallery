@@ -107,7 +107,7 @@ tiny bit smaller. */
 /* Tablet – 600px */
 @media (min-width: 37.5em) {
   .modal {
-    max-width: 80%;
+    max-width: 80vw;
   }
 }
 

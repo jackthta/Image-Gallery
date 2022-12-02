@@ -1,0 +1,7 @@
+/*
+Need to explicitly target `canvas` element
+inside <Blurhash> component to set `border-radius`
+*/
+.blurhash > canvas {
+  border-radius: 1.3rem;
+}

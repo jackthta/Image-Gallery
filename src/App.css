@@ -9,7 +9,7 @@ main {
 
 main .gallery {
   display: grid;
-  gap: 2rem;
+  row-gap: 2rem;
 }
 
 /* Tablet – 600px */

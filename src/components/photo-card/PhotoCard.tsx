@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import Photo from "../photo/photo";
+import Photo from "../photo/Photo";
 import PhotoCardModal from "../photo-card-modal/PhotoCardModal";
 
 import type { PhotoType } from "../../types/unsplash";
@@ -14,7 +14,6 @@ type Props = {
 function PhotoCard({ photo }: Props) {
   const [modalOpen, setModalOpen] = useState(false);
 
-  
   return (
     <>
       <button className="card" onClick={() => setModalOpen(true)}>

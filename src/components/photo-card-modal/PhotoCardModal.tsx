@@ -1,6 +1,6 @@
 import { useEffect, useRef, MouseEvent } from "react";
 
-import Photo from "../photo/photo";
+import Photo from "../photo/Photo";
 
 import instagram_icon from "../../assets/instagram.svg";
 import twitter_icon from "../../assets/twitter.svg";
@@ -120,7 +120,7 @@ function PhotoCardModal({ isOpen, closeModal, photo }: Props) {
         </button>
       </div>
       {/* Modal photo */}
-      <Photo photo={photo} />
+      <Photo photo={photo} inModal />
       {/* Modal contents */}
       <div className="modal__content">
         {/* Created date */}
@@ -170,7 +170,7 @@ export default PhotoCardModal;
 
 // Keeping this work here as a reference and learning
 // lesson. The note detailed below shows my initial obstacle
-// until I learned of <dialog>'s "cancel" event (more 
+// until I learned of <dialog>'s "cancel" event (more
 // info where the "cancel" event listener is added to `modal`).
 
 // NOTE: Unsure how to pass `handleCloseModal` to the
