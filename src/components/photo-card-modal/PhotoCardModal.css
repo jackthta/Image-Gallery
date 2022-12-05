@@ -68,8 +68,6 @@
 .modal__content > p {
   display: flex;
   flex-direction: column;
-
-  font-size: 0.9rem;
 }
 
 .modal__content > p > span:first-child {
