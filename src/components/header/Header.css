@@ -9,5 +9,18 @@
 }
 
 .header__icon {
-  width: 3rem;
+  width: 3.5rem;
+}
+
+.header__icon-button {
+  padding: 0;
+  
+  background-color: inherit;
+
+  border: none;
+  border-radius: 50%;
+}
+
+.header__icon-button:hover {
+  cursor: pointer;
 }
