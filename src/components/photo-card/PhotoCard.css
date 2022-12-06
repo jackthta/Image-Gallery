@@ -1,18 +1,10 @@
 .card {
   padding: 1rem;
 
-  color: inherit;
-  background-color: inherit;
-
-  border: none;
-  border-radius: 1.3rem;
+  border-radius: var(--border-radius-rounded);
   box-shadow: 1px 2px 8px lightgrey;
 }
 
-.card:hover {
-  cursor: pointer;
-}
-
 .card__photo {
-  border-radius: 1.3rem;
+  border-radius: var(--border-radius-rounded);
 }

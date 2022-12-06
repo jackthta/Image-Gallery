@@ -4,6 +4,23 @@
   box-sizing: border-box;
 }
 
+/* Global variables */
+:root {
+  --main-text-color: black;
+  --main-background-color: white;
+
+  /* Main container */
+  --main-container-padding: 0 1rem;
+
+  /* Screen-size dependent spacing */
+  --mobile-gap: 2rem;
+  --tablet-gap: 1.75rem;
+  --desktop-gap: 1.25rem;
+
+  /* Misc */
+  --border-radius-rounded: 1.3rem;
+}
+
 html {
   font-size: clamp(1rem, 0.5rem + 1vw, 1.5rem);
 }
@@ -34,8 +51,8 @@ body {
   min-height: 100vh;
   line-height: 1.5;
 
-  color: black;
-  background-color: white;
+  color: var(--main-text-color);
+  background-color: var(--main-background-color);
 
   font-family: sans-serif;
 
@@ -54,6 +71,17 @@ button,
 textarea,
 select {
   font: inherit;
+}
+
+input,
+button {
+  background-color: inherit;
+
+  border: none;
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 #root {

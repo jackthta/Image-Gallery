@@ -3,11 +3,10 @@
   align-items: center;
   gap: 0.25rem;
   width: 100%;
-  height: 2.5rem;
   padding: 0.5rem 1rem;
 
   background-color: #eee;
-  border-radius: 2rem;
+  border-radius: var(--border-radius-rounded);
 }
 
 .search__icon {
@@ -18,11 +17,8 @@
   width: 100%;
 
   font-size: 0.9rem;
-
-  background-color: inherit;
-  border: none;
 }
 
-.search__input:focus {
+.search__input {
   outline: none;
 }

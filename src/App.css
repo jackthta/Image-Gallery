@@ -4,12 +4,12 @@ main {
   grid-template-columns: repeat(1, minmax(0, 1fr));
   place-items: start center;
 
-  padding: 0 1rem;
+  padding: var(--main-container-padding);
 }
 
 main .gallery {
   display: grid;
-  row-gap: 2rem;
+  row-gap: var(--mobile-gap);
 }
 
 /* Tablet – 600px */
@@ -17,12 +17,12 @@ main .gallery {
   main {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     place-items: start center;
-    column-gap: 1.75rem;
+    column-gap: var(--tablet-gap);
   }
 
   main .gallery {
     display: grid;
-    row-gap: 1.75rem;
+    row-gap: var(--tablet-gap);
   }
 }
 
@@ -31,11 +31,11 @@ main .gallery {
   main {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     place-items: start center;
-    column-gap: 1.25rem;
+    column-gap: var(--desktop-gap);
   }
 
   main .gallery {
     display: grid;
-    row-gap: 1.25rem;
+    row-gap: var(--desktop-gap);
   }
 }

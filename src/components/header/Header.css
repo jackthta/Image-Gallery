@@ -1,6 +1,6 @@
 .header {
-  padding: 0 1rem;
-  margin: 1rem 0;
+  padding: var(--main-container-padding);
+  margin: var(--mobile-gap) 0;
   height: 3rem;
 
   display: flex;
@@ -14,13 +14,20 @@
 
 .header__icon-button {
   padding: 0;
-  
-  background-color: inherit;
 
-  border: none;
   border-radius: 50%;
 }
 
-.header__icon-button:hover {
-  cursor: pointer;
+/* Tablet – 600px */
+@media (min-width: 37.5em) {
+  .header {
+    margin: var(--tablet-gap) 0;
+  }
+}
+
+/* Desktop – 1024px */
+@media (min-width: 64em) {
+  .header {
+    margin: var(--desktop-gap) 0;
+  }
 }
