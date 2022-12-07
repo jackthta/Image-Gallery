@@ -71,15 +71,8 @@
   gap: 0.5rem;
 }
 
-.modal__footer__author-socials img {
+.modal__footer__author-socials svg {
   width: 1.5rem;
-}
-
-/* Unsplash icon looks strangely larger than other
-social icons, even though the width is the same. Make a 
-tiny bit smaller. */
-.modal__footer__author-socials a:last-child img {
-  width: 1.25rem;
 }
 
 .modal__footer {

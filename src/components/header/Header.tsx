@@ -2,7 +2,7 @@ import { useRef } from "react";
 
 import SearchBar from "../search-bar/SearchBar";
 
-import hero_icon from "../../../public/aperture.svg";
+import BrandSVG from "../svgs/BrandSVG";
 
 import type { Dispatch, SetStateAction } from "react";
 
@@ -30,7 +30,7 @@ function Header({ onSearch }: Props) {
   return (
     <header className="header">
       <button className="header__icon-button" onClick={handleHeroIcon}>
-        <img className="header__icon" src={hero_icon} alt="Aperture lens" />
+        <BrandSVG className="header__icon" />
       </button>
       <SearchBar ref={inputRef} onSearch={onSearch} />
     </header>

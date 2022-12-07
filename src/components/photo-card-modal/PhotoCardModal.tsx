@@ -2,10 +2,10 @@ import { useEffect, useRef, MouseEvent } from "react";
 
 import Photo from "../photo/Photo";
 
-import instagram_icon from "../../assets/instagram.svg";
-import twitter_icon from "../../assets/twitter.svg";
-import unsplash_icon from "../../assets/unsplash.svg";
-import close_icon from "../../assets/close.svg";
+import InstagramSVG from "../svgs/InstagramSVG";
+import TwitterSVG from "../svgs/TwitterSVG";
+import UnsplashSVG from "../svgs/UnsplashSVG";
+import CloseSVG from "../svgs/CloseSVG";
 
 import type { PhotoType } from "../../types/unsplash";
 
@@ -112,11 +112,7 @@ function PhotoCardModal({ isOpen, closeModal, photo }: Props) {
           className="modal__header__close-button"
           onClick={handleCloseModal}
         >
-          <img
-            className="modal__header__close__icon"
-            src={close_icon}
-            alt="Close 'x' icon"
-          />
+          <CloseSVG className="modal__header__close__icon" />
         </button>
       </div>
       {/* Modal photo */}
@@ -144,7 +140,7 @@ function PhotoCardModal({ isOpen, closeModal, photo }: Props) {
               href={`https://www.instagram.com/${photo.user.instagram_username}`}
               target="_blank"
             >
-              <img src={instagram_icon} alt="Instagram icon" />
+              <InstagramSVG />
             </a>
           )}
           {/* Twitter */}
@@ -153,12 +149,12 @@ function PhotoCardModal({ isOpen, closeModal, photo }: Props) {
               href={`https://twitter.com/${photo.user.twitter_username}`}
               target="_blank"
             >
-              <img src={twitter_icon} alt="Twitter icon" />
+              <TwitterSVG />
             </a>
           )}
           {/* Unsplash */}
           <a href={photo.user.links.html} target="_blank">
-            <img src={unsplash_icon} alt="Unsplash icon" />
+            <UnsplashSVG />
           </a>
         </div>
       </div>

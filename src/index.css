@@ -86,6 +86,10 @@ button:hover {
   cursor: pointer;
 }
 
+a {
+  color: inherit;
+}
+
 #root {
   max-width: 1200px;
   margin: 0 auto;

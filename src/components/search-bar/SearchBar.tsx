@@ -1,7 +1,7 @@
 import { forwardRef, useState } from "react";
 
-import search_icon from "../../assets/search-icon.svg";
-import close_icon from "../../assets/close.svg";
+import CloseSVG from "../svgs/CloseSVG";
+import MagnifyingGlassSVG from "../svgs/MagnifyingGlassSVG";
 
 import type {
   Dispatch,
@@ -39,11 +39,7 @@ const SearchBar = forwardRef(
         onSubmit={handleSearch}
         onReset={handleClearSearch}
       >
-        <img
-          className="search__icon"
-          src={search_icon}
-          alt="Magnifying glass"
-        />
+        <MagnifyingGlassSVG className="search__icon" />
 
         {/* Search input */}
         <input
@@ -57,11 +53,7 @@ const SearchBar = forwardRef(
         {/* Clear search input button */}
         {searchInput.length > 0 && (
           <button className="search__clear__button" type="reset">
-            <img
-              className="search__clear__button__icon"
-              src={close_icon}
-              alt="'x' icon to clear search input"
-            />
+            <CloseSVG className="search__clear__button__icon" />
           </button>
         )}
       </form>
