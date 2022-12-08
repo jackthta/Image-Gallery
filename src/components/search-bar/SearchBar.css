@@ -6,8 +6,15 @@
   height: 2.5rem;
   padding-left: 1rem;
 
-  background-color: #eee;
   border-radius: var(--border-radius-rounded);
+}
+
+[data-theme="light"] .search {
+  background: var(--light-p-300);
+}
+
+[data-theme="dark"] .search {
+  background-color: var(--dark-bg-color-02dp);
 }
 
 .search__icon {
@@ -19,10 +26,16 @@
   width: 85%;
 
   font-size: 0.9rem;
+  outline: none;
 }
 
-.search__input {
-  outline: none;
+.search__input::placeholder {
+  color: var(--text-color);
+  opacity: 60%;
+}
+
+.search__input:focus::placeholder {
+  opacity: 87%;
 }
 
 .search__clear__button {

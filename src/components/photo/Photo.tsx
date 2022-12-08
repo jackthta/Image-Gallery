@@ -111,7 +111,7 @@ function Photo({ className, photo, inModal = false }: Props) {
         onLoad={handlePhotoLoaded}
       />
 
-      {!photoLoaded && (
+      {!photoLoaded && photo.blur_hash && (
         <Blurhash
           className={`${!inModal && "blurhash"}`}
           hash={photo.blur_hash}

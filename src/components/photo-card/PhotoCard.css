@@ -2,9 +2,17 @@
   padding: 1rem;
 
   border-radius: var(--border-radius-rounded);
-  box-shadow: 1px 2px 8px lightgrey;
 }
 
 .card__photo {
   border-radius: var(--border-radius-rounded);
+}
+
+[data-theme="light"] .card {
+  box-shadow: 1px 2px 8px var(--light-p-400);
+}
+
+[data-theme="dark"] .card {
+  box-shadow: 1px 2px 8px black;
+  background-color: var(--dark-bg-color-02dp);
 }

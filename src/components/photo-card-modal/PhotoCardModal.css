@@ -1,13 +1,36 @@
+/*
+NOTE: The `::backdrop` pseudo-element doesn't inherit
+from any element. Workaround by using `::backdrop` as
+`:root` for modal backdrop variable declarations, so
+`.modal::backdrop` can consume.
+Source: https://stackoverflow.com/a/63322762
+*/
+::backdrop {
+  --light-modal-backdrop: rgba(0, 0, 0, 0.5);
+  --dark-modal-backdrop: rgba(0, 0, 0, 0.9);
+}
+
 .modal {
   max-width: 100%;
   display: flex;
   flex-direction: column;
 
+  color: var(--text-color);
+  background-color: var(--bg-color);
+
   border-radius: var(--border-radius-rounded);
 }
 
-.modal::backdrop {
-  background-color: rgba(0, 0, 0, 0.5);
+[data-theme="dark"] .modal {
+  background-color: var(--dark-bg-color-03dp);
+}
+
+[data-theme="light"] .modal::backdrop {
+  background-color: var(--light-modal-backdrop);
+}
+
+[data-theme="dark"] .modal::backdrop {
+  background-color: var(--dark-modal-backdrop);
 }
 
 .modal__header {
@@ -42,6 +65,7 @@
 }
 
 .modal__header__close__icon {
+  display: flex;
   width: 1.25rem;
 }
 

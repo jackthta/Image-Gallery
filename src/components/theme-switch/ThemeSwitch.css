@@ -1,0 +1,15 @@
+.switch {
+  display: flex;
+
+  border-radius: 50%;
+}
+
+[data-theme="light"] {
+  --text-color: var(--light-text-color);
+  --bg-color: var(--light-bg-color);
+}
+
+[data-theme="dark"] {
+  --text-color: var(--dark-text-color);
+  --bg-color: var(--dark-bg-color);
+}

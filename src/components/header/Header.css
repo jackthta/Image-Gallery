@@ -1,7 +1,7 @@
 .header {
   padding: var(--main-container-padding);
-  margin: var(--mobile-gap) 0;
-  height: 3rem;
+  margin: 2rem 0;
+  height: 1.5rem;
 
   display: flex;
   align-items: center;
@@ -9,25 +9,23 @@
 }
 
 .header__icon {
-  width: 3.5rem;
+  width: 2.75rem;
 }
 
 .header__icon-button {
-  padding: 0;
+  display: flex;
 
   border-radius: 50%;
 }
 
-/* Tablet – 600px */
-@media (min-width: 37.5em) {
-  .header {
-    margin: var(--tablet-gap) 0;
-  }
+.header__divider {
+  height: 100%;
 }
 
-/* Desktop – 1024px */
-@media (min-width: 64em) {
-  .header {
-    margin: var(--desktop-gap) 0;
-  }
+[data-theme="light"] .header__divider {
+  border-right: 1px solid var(--light-p-300);
+}
+
+[data-theme="dark"] .header__divider {
+  border-right: 1px solid var(--dark-p-800);
 }

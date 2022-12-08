@@ -6,23 +6,29 @@
 
 /* Global variables */
 :root {
-  --main-text-color: black;
-  --main-background-color: white;
+  /* Dark theme */
+  --dark-text-color: #fff;
+  --dark-bg-color: #121212;
+  --dark-bg-color-01dp: #1d1d1d;
+  --dark-bg-color-02dp: #222222;
+  --dark-bg-color-03dp: #252525;
+  --dark-p-800: #323232;
+
+  /* Light theme */
+  --light-text-color: #121212;
+  --light-bg-color: #fff;
+  --light-p-300: #f0f0f0;
+  --light-p-400: #dedede;
 
   /* Main container */
   --main-container-padding: 0 1rem;
-
-  /* Screen-size dependent spacing */
-  --mobile-gap: 2rem;
-  --tablet-gap: 1.75rem;
-  --desktop-gap: 1.25rem;
 
   /* Misc */
   --border-radius-rounded: 1.3rem;
 }
 
 html {
-  font-size: clamp(1rem, 0.5rem + 1vw, 1.5rem);
+  font-size: clamp(1rem, 0.25rem + 1vw, 1.5rem);
 }
 
 /* Remove default margin */
@@ -51,8 +57,8 @@ body {
   min-height: 100vh;
   line-height: 1.5;
 
-  color: var(--main-text-color);
-  background-color: var(--main-background-color);
+  color: var(--text-color);
+  background-color: var(--bg-color);
 
   font-family: sans-serif;
 
@@ -77,6 +83,7 @@ input,
 button {
   padding: 0;
 
+  color: inherit;
   background-color: inherit;
 
   border: none;
@@ -86,7 +93,12 @@ button:hover {
   cursor: pointer;
 }
 
-a {
+/*
+Icon buttons need to inherit color
+for their `currentColor` to take effect
+*/
+a,
+button {
   color: inherit;
 }
 

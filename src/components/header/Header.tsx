@@ -1,6 +1,7 @@
 import { useRef } from "react";
 
 import SearchBar from "../search-bar/SearchBar";
+import ThemeSwitch from "../theme-switch/ThemeSwitch";
 
 import BrandSVG from "../svgs/BrandSVG";
 
@@ -33,6 +34,9 @@ function Header({ onSearch }: Props) {
         <BrandSVG className="header__icon" />
       </button>
       <SearchBar ref={inputRef} onSearch={onSearch} />
+
+      <div className="header__divider"></div>
+      <ThemeSwitch />
     </header>
   );
 }
