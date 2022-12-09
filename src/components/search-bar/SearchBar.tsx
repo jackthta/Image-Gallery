@@ -1,64 +1,50 @@
-import { forwardRef, useState } from "react";
-
 import CloseSVG from "../svgs/CloseSVG";
 import MagnifyingGlassSVG from "../svgs/MagnifyingGlassSVG";
 
-import type {
-  Dispatch,
-  ForwardedRef,
-  SetStateAction,
-  ChangeEvent,
-  FormEvent,
-} from "react";
+import type { Dispatch, SetStateAction, ChangeEvent, FormEvent } from "react";
 
 import "./SearchBar.css";
 
 type Props = {
+  input: string;
+  setInput: Dispatch<SetStateAction<string>>;
   onSearch: Dispatch<SetStateAction<string>>;
 };
 
-const SearchBar = forwardRef(
-  ({ onSearch }: Props, ref: ForwardedRef<HTMLInputElement>) => {
-    const [searchInput, setSearchInput] = useState("");
+const SearchBar = ({ input, setInput, onSearch }: Props) => {
+  const handleSearch = (e: FormEvent<HTMLFormElement>): void => {
+    e.preventDefault();
 
-    const handleSearchInputChange = ({
-      target: input,
-    }: ChangeEvent<HTMLInputElement>): void => setSearchInput(input.value);
+    onSearch(input);
+  };
 
-    const handleSearch = (e: FormEvent<HTMLFormElement>): void => {
-      e.preventDefault();
+  const handleInputChange = ({
+    target: input,
+  }: ChangeEvent<HTMLInputElement>): void => setInput(input.value);
 
-      onSearch(searchInput);
-    };
+  const handleInputClear = (): void => setInput("");
 
-    const handleClearSearch = (): void => setSearchInput("");
+  return (
+    <form className="search" onSubmit={handleSearch} onReset={handleInputClear}>
+      <MagnifyingGlassSVG className="search__icon" />
 
-    return (
-      <form
-        className="search"
-        onSubmit={handleSearch}
-        onReset={handleClearSearch}
-      >
-        <MagnifyingGlassSVG className="search__icon" />
+      {/* Search input */}
+      <input
+        className="search__input"
+        type="text"
+        value={input}
+        placeholder="Search photos"
+        onChange={handleInputChange}
+      />
 
-        {/* Search input */}
-        <input
-          ref={ref}
-          className="search__input"
-          type="text"
-          placeholder="Search photos"
-          onChange={handleSearchInputChange}
-        />
-
-        {/* Clear search input button */}
-        {searchInput.length > 0 && (
-          <button className="search__clear__button" type="reset">
-            <CloseSVG className="search__clear__button__icon" />
-          </button>
-        )}
-      </form>
-    );
-  }
-);
+      {/* Clear search input button */}
+      {input.length > 0 && (
+        <button className="search__clear__button" type="reset">
+          <CloseSVG className="search__clear__button__icon" />
+        </button>
+      )}
+    </form>
+  );
+};
 
 export default SearchBar;

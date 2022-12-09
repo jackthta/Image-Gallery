@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useState } from "react";
 
 import SearchBar from "../search-bar/SearchBar";
 import ThemeSwitch from "../theme-switch/ThemeSwitch";
@@ -14,26 +14,25 @@ type Props = {
 };
 
 function Header({ onSearch }: Props) {
-  const inputRef = useRef<HTMLInputElement | null>(null);
+  const [input, setInput] = useState("");
 
-  const handleHeroIcon = () => {
-    // Searching an empty query string will
-    // search for random photos.
+  const brandButtonTitle = input ? "Refresh home page" : "";
+
+  const handleResetSearch = (): void => {
+    setInput("");
     onSearch("");
-
-    // Ensure <SearchBar>'s <input> value is empty
-    // after "resetting" search query.
-    // AKA `if (inputRef.current) inputRef.current.value = "";`
-    // (but wanted to try out this syntax just once)
-    inputRef.current && (inputRef.current.value = "");
   };
 
   return (
     <header className="header">
-      <button className="header__icon-button" onClick={handleHeroIcon}>
+      <button
+        className="header__icon-button"
+        title={brandButtonTitle}
+        onClick={handleResetSearch}
+      >
         <BrandSVG className="header__icon" />
       </button>
-      <SearchBar ref={inputRef} onSearch={onSearch} />
+      <SearchBar input={input} setInput={setInput} onSearch={onSearch} />
 
       <div className="header__divider"></div>
       <ThemeSwitch />
