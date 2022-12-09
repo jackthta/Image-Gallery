@@ -10,6 +10,7 @@
 
 .header__icon {
   width: 2.75rem;
+  height: 100%;
 }
 
 .header__icon-button {
