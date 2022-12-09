@@ -4,6 +4,8 @@ function TwitterSVG({ className }: SVGProps) {
   return (
     <svg
       className={`${className}`}
+      width="24"
+      height="24"
       strokeWidth="1.5"
       viewBox="0 0 24 24"
       fill="none"
