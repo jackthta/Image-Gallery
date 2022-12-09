@@ -9,16 +9,27 @@
   /* Dark theme */
   --dark-text-color: #fff;
   --dark-bg-color: #121212;
+  --dark-p-800: #323232;
+
+  /* Dark theme - elevation */
   --dark-bg-color-01dp: #1d1d1d;
   --dark-bg-color-02dp: #222222;
   --dark-bg-color-03dp: #252525;
-  --dark-p-800: #323232;
+  --dark-bg-color-04dp: #262626;
+
+  /* Dark theme – state colors */
+  --dark-hover: #1b1b1b;
+  --dark-pressed: #292929;
 
   /* Light theme */
   --light-text-color: #121212;
   --light-bg-color: #fff;
   --light-p-300: #f0f0f0;
   --light-p-400: #dedede;
+
+  /* Light theme – state colors */
+  --light-hover: #f6f6f6;
+  --light-pressed: #e8e8e8;
 
   /* Main container */
   --main-container-padding: 0 1rem;

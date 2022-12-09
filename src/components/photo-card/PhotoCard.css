@@ -3,16 +3,24 @@
 
   border-radius: var(--border-radius-rounded);
 }
-
-.card__photo {
-  border-radius: var(--border-radius-rounded);
-}
-
 [data-theme="light"] .card {
   box-shadow: 1px 2px 8px var(--light-p-400);
+}
+
+[data-theme="light"] .card:hover {
+  box-shadow: 2px 4px 16px var(--light-p-400);
 }
 
 [data-theme="dark"] .card {
   box-shadow: 1px 2px 8px black;
   background-color: var(--dark-bg-color-02dp);
+}
+
+[data-theme="dark"] .card:hover {
+  box-shadow: 2px 4px 16px black;
+  background-color: var(--dark-bg-color-04dp);
+}
+
+.card__photo {
+  border-radius: var(--border-radius-rounded);
 }

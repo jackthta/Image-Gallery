@@ -10,6 +10,11 @@ Source: https://stackoverflow.com/a/63322762
   --dark-modal-backdrop: rgba(0, 0, 0, 0.9);
 }
 
+:root {
+  --dark-modal-hover: #2e2e2e;
+  --dark-modal-pressed: #3a3a3a;
+}
+
 .modal {
   max-width: 100%;
   display: flex;
@@ -64,9 +69,31 @@ Source: https://stackoverflow.com/a/63322762
   font-weight: bold;
 }
 
+.modal__header__close-button {
+  border-radius: 50%;
+}
+
+[data-theme="light"] .modal__header__close-button:hover {
+  background-color: var(--light-hover);
+}
+
+[data-theme="dark"] .modal__header__close-button:hover {
+  background-color: var(--dark-modal-hover);
+}
+
+[data-theme="light"] .modal__header__close-button:active {
+  background-color: var(--light-pressed);
+}
+
+[data-theme="dark"] .modal__header__close-button:active {
+  background-color: var(--dark-modal-pressed);
+}
+
 .modal__header__close__icon {
   display: flex;
-  width: 1.25rem;
+  width: 1.75rem;
+  height: auto;
+  padding: 0.25rem;
 }
 
 .modal__content {
@@ -95,8 +122,45 @@ Source: https://stackoverflow.com/a/63322762
   gap: 0.5rem;
 }
 
+.modal__footer__author-socials a {
+  display: flex;
+  padding: 0.25rem;
+
+  border-radius: 50%;
+}
+
+/*
+Unsplash's dimensions seem a little larger
+than the others even though they're all the same
+size. Tweak to make it "look" the same size as others.
+*/
+.modal__footer__author-socials a:last-child {
+  padding: 0.4rem;
+}
+
+.modal__footer__author-socials a:last-child svg {
+  width: 1rem;
+}
+
 .modal__footer__author-socials svg {
   width: 1.5rem;
+  height: auto;
+}
+
+[data-theme="light"] .modal__footer__author-socials a:hover {
+  background-color: var(--light-hover);
+}
+
+[data-theme="dark"] .modal__footer__author-socials a:hover {
+  background-color: var(--dark-modal-hover);
+}
+
+[data-theme="light"] .modal__footer__author-socials a:active {
+  background-color: var(--light-pressed);
+}
+
+[data-theme="dark"] .modal__footer__author-socials a:active {
+  background-color: var(--dark-modal-pressed);
 }
 
 .modal__footer {

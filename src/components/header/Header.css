@@ -1,3 +1,17 @@
+/*
+<BrandSVG> and <ThemeSwitch>'s padding breaks 
+<Header> layout spacing, but is a necessity to
+provide a large enough hover circle. As much padding
+as it adds, will be taken away from its margin in the
+respective direction where the layout spacing breaks
+(`margin-right` for <BrandSVG> on the left-most side; 
+`margin-left` for <ThemeSwitch> on the right-most side)
+to ensure the layout spacing is flush again.
+*/
+:root {
+  --header-offset-padding: 0.5rem;
+}
+
 .header {
   padding: var(--main-container-padding);
   margin: 2rem 0;
@@ -9,8 +23,29 @@
 }
 
 .header__icon {
-  width: 2.75rem;
+  width: 3.5rem;
   height: 100%;
+  padding: var(--header-offset-padding);
+  margin-right: calc(var(--header-offset-padding) * -1);
+
+  border-radius: 50%;
+  outline-offset: -10px;
+}
+
+[data-theme="light"] .header__icon:hover {
+  background-color: var(--light-hover);
+}
+
+[data-theme="dark"] .header__icon:hover {
+  background-color: var(--dark-hover);
+}
+
+[data-theme="light"] .header__icon:active {
+  background-color: var(--light-pressed);
+}
+
+[data-theme="dark"] .header__icon:active {
+  background-color: var(--dark-pressed);
 }
 
 .header__icon-button {
@@ -21,6 +56,7 @@
 
 .header__divider {
   height: 100%;
+  margin-right: calc(var(--theme-switch-padding) * -1);
 }
 
 [data-theme="light"] .header__divider {

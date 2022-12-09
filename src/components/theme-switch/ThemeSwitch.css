@@ -1,7 +1,25 @@
 .switch {
   display: flex;
+  padding: var(--header-offset-padding);
+  margin-left: calc(var(--header-offset-padding) * -1);
 
   border-radius: 50%;
+}
+
+[data-theme="light"] .switch:hover {
+  background-color: var(--light-hover);
+}
+
+[data-theme="dark"] .switch:hover {
+  background-color: var(--dark-hover);
+}
+
+[data-theme="light"] .switch:active {
+  background-color: var(--light-pressed);
+}
+
+[data-theme="dark"] .switch:active {
+  background-color: var(--dark-pressed);
 }
 
 [data-theme="light"] {
