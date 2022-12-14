@@ -19,15 +19,13 @@ function PhotoCard({ photo }: Props) {
       <button className="card" onClick={() => setModalOpen(true)}>
         <Photo className="card__photo" photo={photo} />
       </button>
-
+      
       {/* Modal for further details */}
-      {modalOpen && (
-        <PhotoCardModal
-          isOpen={modalOpen}
-          closeModal={() => setModalOpen(false)}
-          photo={photo}
-        />
-      )}
+      <PhotoCardModal
+        isOpen={modalOpen}
+        closeModal={() => setModalOpen(false)}
+        photo={photo}
+      />
     </>
   );
 }

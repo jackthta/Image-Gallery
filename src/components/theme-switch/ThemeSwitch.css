@@ -4,6 +4,12 @@
   margin-left: calc(var(--header-offset-padding) * -1);
 
   border-radius: 50%;
+
+  transition: background-color var(--duration-medium) var(--standard-easing);
+}
+
+[data-theme] .switch:hover {
+  transition: background-color var(--duration-medium) var(--standard-easing);
 }
 
 [data-theme="light"] .switch:hover {

@@ -1,21 +1,22 @@
-/*
-NOTE: The `::backdrop` pseudo-element doesn't inherit
-from any element. Workaround by using `::backdrop` as
-`:root` for modal backdrop variable declarations, so
-`.modal::backdrop` can consume.
-Source: https://stackoverflow.com/a/63322762
-*/
-::backdrop {
-  --light-modal-backdrop: rgba(0, 0, 0, 0.5);
-  --dark-modal-backdrop: rgba(0, 0, 0, 0.9);
-}
-
 :root {
   --dark-modal-hover: #2e2e2e;
   --dark-modal-pressed: #3a3a3a;
 }
 
 .modal {
+  /*
+  Need to explicitly set position to `fixed`
+  so that `translateY` will be in respect to
+  the current viewing viewport instead of the 
+  entire page viewport.
+  E.g.: 
+    - w/o `fixed`: `0vh` will be the top of the page,
+      so only the photo card modals at the top of
+      the page will show the transition properly.
+    - w/ `fixed`: `0vh` will be the top of the current
+      viewing viewport.
+  */
+  position: fixed;
   max-width: 100%;
   display: flex;
   flex-direction: column;
@@ -26,16 +27,38 @@ Source: https://stackoverflow.com/a/63322762
   border-radius: var(--border-radius-rounded);
 }
 
+/* 🔻🔻🔻 React-Transition-Group 🔻🔻🔻 */
+.modal-enter {
+  transform: translateY(100vh);
+  opacity: 0%;
+}
+
+.modal-enter-active {
+  transform: translateY(0vh);
+  opacity: 100%;
+
+  transition-property: transform, opacity;
+  transition-duration: var(--duration-long);
+  transition-timing-function: var(--emphasized-decelerate-easing);
+}
+
+.modal-exit {
+  transform: translateY(0px);
+  opacity: 100%;
+}
+
+.modal-exit-active {
+  transform: translateY(100vh);
+  opacity: 0;
+
+  transition-property: transform, opacity;
+  transition-duration: var(--duration-medium);
+  transition-timing-function: var(--emphasized-accelerate-easing);
+}
+/* 🔺🔺🔺 React-Transition-Group 🔺🔺🔺 */
+
 [data-theme="dark"] .modal {
   background-color: var(--dark-bg-color-03dp);
-}
-
-[data-theme="light"] .modal::backdrop {
-  background-color: var(--light-modal-backdrop);
-}
-
-[data-theme="dark"] .modal::backdrop {
-  background-color: var(--dark-modal-backdrop);
 }
 
 .modal__header {
@@ -71,6 +94,12 @@ Source: https://stackoverflow.com/a/63322762
 
 .modal__header__close-button {
   border-radius: 50%;
+
+  transition: background-color var(--duration-short) var(--standard-easing);
+}
+
+[data-theme] .modal__header__close-button:hover {
+  transition: background-color var(--duration-short) var(--standard-easing);
 }
 
 [data-theme="light"] .modal__header__close-button:hover {
@@ -127,6 +156,8 @@ Source: https://stackoverflow.com/a/63322762
   padding: 0.25rem;
 
   border-radius: 50%;
+
+  transition: background-color var(--duration-short) var(--standard-easing);
 }
 
 /*
@@ -145,6 +176,10 @@ size. Tweak to make it "look" the same size as others.
 .modal__footer__author-socials svg {
   width: 1.5rem;
   height: auto;
+}
+
+[data-theme] .modal__footer__author-socials a:hover {
+  transition: background-color var(--duration-short) var(--standard-easing);
 }
 
 [data-theme="light"] .modal__footer__author-socials a:hover {

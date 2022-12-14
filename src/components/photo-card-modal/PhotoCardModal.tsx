@@ -1,5 +1,6 @@
-import { useEffect, useRef, MouseEvent } from "react";
+import { useEffect, useRef } from "react";
 
+import { CSSTransition } from "react-transition-group";
 import Photo from "../photo/Photo";
 
 import InstagramSVG from "../svgs/InstagramSVG";
@@ -7,6 +8,7 @@ import TwitterSVG from "../svgs/TwitterSVG";
 import UnsplashSVG from "../svgs/UnsplashSVG";
 import CloseSVG from "../svgs/CloseSVG";
 
+import type { MouseEvent } from "react";
 import type { PhotoType } from "../../types/unsplash";
 
 import "./PhotoCardModal.css";
@@ -32,7 +34,18 @@ function PhotoCardModal({ isOpen, closeModal, photo }: Props) {
     new Date(photo.created_at)
   );
 
+  const handleOpenModal = () => {
+    // Disable scrolling on main page while modal is open.
+    document.body.style.overflow = "hidden";
+
+    modal.current?.showModal();
+  };
+
   const handleCloseModal = () => {
+    // Enable back scrolling on main page when modal
+    // is closed.
+    document.body.style.overflow = "auto";
+
     // NOTE: Can close the modal just by invoking
     // `closeModal` since the updated `false` state
     //  in the parent will remove the `PhotoCardModal`
@@ -55,20 +68,6 @@ function PhotoCardModal({ isOpen, closeModal, photo }: Props) {
   };
 
   useEffect(() => {
-    if (isOpen) modal.current?.showModal();
-  }, []);
-
-  useEffect(() => {
-    // Disable scrolling on main page while modal is open.
-    document.body.style.overflow = "hidden";
-    return () => {
-      // Enable back scrolling on main page when modal
-      // is closed.
-      document.body.style.overflow = "auto";
-    };
-  });
-
-  useEffect(() => {
     // The `cancel` event happens on the <dialog>
     // when the "Escape" key is pressed.
     //   Source: https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement/cancel_event
@@ -85,80 +84,91 @@ function PhotoCardModal({ isOpen, closeModal, photo }: Props) {
   });
 
   return (
-    <dialog
-      className="modal"
-      ref={modal}
-      onClick={handleCloseModalOnBackdropClick}
+    <CSSTransition
+      in={isOpen}
+      classNames="modal"
+      timeout={450}
+      nodeRef={modal}
+      mountOnEnter
+      unmountOnExit
+      onEntered={handleOpenModal}
+      onExited={handleCloseModal}
     >
-      {/* Modal header */}
-      <div className="modal__header">
-        {/* Author profile image & full name */}
-        <div className="modal__header__profile">
-          <img
-            className="modal__header__profile-image"
-            src={photo.user.profile_image.large}
-            alt={`${photo.user.name}'s profile image`}
-          />
-          <a
-            className="modal__header__profile-name"
-            href={photo.user.links.html}
-            target="_blank"
+      <dialog
+        className="modal"
+        ref={modal}
+        onClick={handleCloseModalOnBackdropClick}
+      >
+        {/* Modal header */}
+        <div className="modal__header">
+          {/* Author profile image & full name */}
+          <div className="modal__header__profile">
+            <img
+              className="modal__header__profile-image"
+              src={photo.user.profile_image.large}
+              alt={`${photo.user.name}'s profile image`}
+            />
+            <a
+              className="modal__header__profile-name"
+              href={photo.user.links.html}
+              target="_blank"
+            >
+              {photo.user.name}
+            </a>
+          </div>
+          {/* Close modal button */}
+          <button
+            className="modal__header__close-button"
+            onClick={handleCloseModal}
           >
-            {photo.user.name}
-          </a>
+            <CloseSVG className="modal__header__close__icon" />
+          </button>
         </div>
-        {/* Close modal button */}
-        <button
-          className="modal__header__close-button"
-          onClick={handleCloseModal}
-        >
-          <CloseSVG className="modal__header__close__icon" />
-        </button>
-      </div>
-      {/* Modal photo */}
-      <Photo photo={photo} inModal />
-      {/* Modal contents */}
-      <div className="modal__content">
-        {/* Created date */}
-        <p className="modal__content__created-date">
-          <span>Posted</span>
-          <span>{createdDate}</span>
-        </p>
+        {/* Modal photo */}
+        <Photo photo={photo} inModal />
+        {/* Modal contents */}
+        <div className="modal__content">
+          {/* Created date */}
+          <p className="modal__content__created-date">
+            <span>Posted</span>
+            <span>{createdDate}</span>
+          </p>
 
-        {/* Description */}
-        <p className="modal__content__description">
-          <span>Description</span>
-          <span>{photo.description ?? "--"}</span>
-        </p>
-      </div>
-      <div className="modal__footer">
-        {/* User social media links */}
-        <div className="modal__footer__author-socials">
-          {/* Instagram */}
-          {hasInstagram && (
-            <a
-              href={`https://www.instagram.com/${photo.user.instagram_username}`}
-              target="_blank"
-            >
-              <InstagramSVG />
-            </a>
-          )}
-          {/* Twitter */}
-          {hasTwitter && (
-            <a
-              href={`https://twitter.com/${photo.user.twitter_username}`}
-              target="_blank"
-            >
-              <TwitterSVG />
-            </a>
-          )}
-          {/* Unsplash */}
-          <a href={photo.user.links.html} target="_blank">
-            <UnsplashSVG />
-          </a>
+          {/* Description */}
+          <p className="modal__content__description">
+            <span>Description</span>
+            <span>{photo.description ?? "--"}</span>
+          </p>
         </div>
-      </div>
-    </dialog>
+        <div className="modal__footer">
+          {/* User social media links */}
+          <div className="modal__footer__author-socials">
+            {/* Instagram */}
+            {hasInstagram && (
+              <a
+                href={`https://www.instagram.com/${photo.user.instagram_username}`}
+                target="_blank"
+              >
+                <InstagramSVG />
+              </a>
+            )}
+            {/* Twitter */}
+            {hasTwitter && (
+              <a
+                href={`https://twitter.com/${photo.user.twitter_username}`}
+                target="_blank"
+              >
+                <TwitterSVG />
+              </a>
+            )}
+            {/* Unsplash */}
+            <a href={photo.user.links.html} target="_blank">
+              <UnsplashSVG />
+            </a>
+          </div>
+        </div>
+      </dialog>
+    </CSSTransition>
   );
 }
 

@@ -36,6 +36,15 @@
 
   /* Misc */
   --border-radius-rounded: 1.3rem;
+
+  /* Transition — Material Design */
+  --standard-easing: cubic-bezier(0.2, 0, 0, 1);
+  --emphasized-accelerate-easing: cubic-bezier(0.3, 0, 0.8, 0.15);
+  --emphasized-decelerate-easing: cubic-bezier(0.05, 0.7, 0.1, 1);
+
+  --duration-short: 200ms;
+  --duration-medium: 300ms;
+  --duration-long: 450ms;
 }
 
 html {
@@ -76,6 +85,10 @@ body {
   /* Font anti-aliasing */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  transition-property: color, background-color;
+  transition-duration: var(--duration-medium);
+  transition-timing-function: var(--standard-easing);
 }
 
 img {

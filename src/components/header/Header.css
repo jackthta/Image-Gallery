@@ -30,6 +30,12 @@ to ensure the layout spacing is flush again.
 
   border-radius: 50%;
   outline-offset: -10px;
+
+  transition: background-color var(--duration-medium) var(--standard-easing);
+}
+
+.header__icon {
+  transition: background-color var(--duration-medium) var(--standard-easing);
 }
 
 [data-theme="light"] .header__icon:hover {
@@ -57,6 +63,12 @@ to ensure the layout spacing is flush again.
 .header__divider {
   height: 100%;
   margin-right: calc(var(--theme-switch-padding) * -1);
+
+  transition: border-color var(--duration-short) var(--standard-easing);
+}
+
+[data-theme] .header__divider {
+  transition: border-color var(--duration-short) var(--standard-easing);
 }
 
 [data-theme="light"] .header__divider {
