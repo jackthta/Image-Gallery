@@ -21,6 +21,20 @@
   display: flex;
   flex-direction: column;
 
+  /*
+  Need to set a high z-index because sometimes
+  the modal clips under the <PhotoCard>s in 
+  the <Gallery> when the close transition runs.
+
+  Should be okay just setting an arbitrarily large
+  z-index since this is the only case of needing
+  to manipulate the z-index. If there are more instances
+  that arise, it might be wise to use some sort of
+  robust z-index framework to bring more clarity
+  to the z-index numbers.
+  */
+  z-index: 1000;
+
   color: var(--text-color);
   background-color: var(--bg-color);
 
