@@ -44,30 +44,23 @@
 /* 🔻🔻🔻 React-Transition-Group 🔻🔻🔻 */
 .modal-enter {
   transform: translateY(100vh);
-  opacity: 0%;
 }
 
 .modal-enter-active {
-  transform: translateY(0vh);
-  opacity: 100%;
+  transform: translateY(0);
 
-  transition-property: transform, opacity;
-  transition-duration: var(--duration-long);
-  transition-timing-function: var(--emphasized-decelerate-easing);
+  transition: transform var(--duration-long) var(--emphasized-decelerate-easing);
 }
 
 .modal-exit {
-  transform: translateY(0px);
-  opacity: 100%;
+  transform: translateY(0);
 }
 
 .modal-exit-active {
   transform: translateY(100vh);
-  opacity: 0;
 
-  transition-property: transform, opacity;
-  transition-duration: var(--duration-medium);
-  transition-timing-function: var(--emphasized-accelerate-easing);
+  transition: transform var(--duration-medium)
+    var(--emphasized-accelerate-easing);
 }
 /* 🔺🔺🔺 React-Transition-Group 🔺🔺🔺 */
 
