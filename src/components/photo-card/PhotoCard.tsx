@@ -16,10 +16,14 @@ function PhotoCard({ photo }: Props) {
 
   return (
     <>
-      <button className="card" onClick={() => setModalOpen(true)}>
+      <button
+        className="card"
+        onClick={() => setModalOpen(true)}
+        data-test="photo-card"
+      >
         <Photo className="card__photo" photo={photo} />
       </button>
-      
+
       {/* Modal for further details */}
       <PhotoCardModal
         isOpen={modalOpen}

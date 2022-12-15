@@ -92,7 +92,11 @@ function ThemeSwitch() {
   }
 
   return (
-    <button className="switch" onClick={handleToggleTheme}>
+    <button
+      className="switch"
+      onClick={handleToggleTheme}
+      data-test="theme-switch"
+    >
       {SwitchIcon}
     </button>
   );

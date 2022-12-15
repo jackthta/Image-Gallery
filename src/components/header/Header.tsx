@@ -29,6 +29,7 @@ function Header({ onSearch }: Props) {
         className="header__icon-button"
         title={brandButtonTitle}
         onClick={handleResetSearch}
+        data-test="header-brand-button"
       >
         <BrandSVG className="header__icon" />
       </button>

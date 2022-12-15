@@ -98,6 +98,7 @@ function PhotoCardModal({ isOpen, closeModal, photo }: Props) {
         className="modal"
         ref={modal}
         onClick={handleCloseModalOnBackdropClick}
+        data-test="photo-card-modal"
       >
         {/* Modal header */}
         <div className="modal__header">
@@ -120,6 +121,7 @@ function PhotoCardModal({ isOpen, closeModal, photo }: Props) {
           <button
             className="modal__header__close-button"
             onClick={handleCloseModal}
+            data-test="photo-card-modal-close"
           >
             <CloseSVG className="modal__header__close__icon" />
           </button>

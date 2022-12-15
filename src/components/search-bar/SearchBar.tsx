@@ -35,11 +35,12 @@ const SearchBar = ({ input, setInput, onSearch }: Props) => {
         value={input}
         placeholder="Search photos"
         onChange={handleInputChange}
+        data-test="search-input"
       />
 
       {/* Clear search input button */}
       {input.length > 0 && (
-        <button className="search__clear__button" type="reset">
+        <button className="search__clear__button" type="reset" data-test="search-bar-clear">
           <CloseSVG className="search__clear__button__icon" />
         </button>
       )}
