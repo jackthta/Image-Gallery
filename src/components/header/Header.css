@@ -34,7 +34,7 @@ to ensure the layout spacing is flush again.
   transition: background-color var(--duration-medium) var(--standard-easing);
 }
 
-.header__icon {
+.header__icon:hover {
   transition: background-color var(--duration-medium) var(--standard-easing);
 }
 
