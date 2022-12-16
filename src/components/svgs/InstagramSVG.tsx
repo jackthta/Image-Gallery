@@ -11,6 +11,7 @@ function InstagramSVG({ className }: SVGProps) {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       color="currentColor"
+      aria-label="Instagram icon"
     >
       <path
         d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"

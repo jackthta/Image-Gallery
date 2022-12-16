@@ -109,6 +109,7 @@ function Photo({ className, photo, inModal = false }: Props) {
         alt={photo.description}
         loading="eager"
         onLoad={handlePhotoLoaded}
+        aria-label={photo.description ?? "The author of this image did not provide a description."}
       />
 
       {!photoLoaded && photo.blur_hash && (
@@ -120,6 +121,7 @@ function Photo({ className, photo, inModal = false }: Props) {
             height: photoRenderedHeight,
             display: photoLoaded ? "none" : "block",
           }}
+          aria-label="blurred image while photo is loading"
         />
       )}
     </>

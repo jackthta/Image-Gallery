@@ -98,10 +98,12 @@ function PhotoCardModal({ isOpen, closeModal, photo }: Props) {
         className="modal"
         ref={modal}
         onClick={handleCloseModalOnBackdropClick}
+        aria-modal
+        aria-label="More details about photo"
         data-test="photo-card-modal"
       >
         {/* Modal header */}
-        <div className="modal__header">
+        <div className="modal__header" aria-label="Modal header">
           {/* Author profile image & full name */}
           <div className="modal__header__profile">
             <img
@@ -113,6 +115,7 @@ function PhotoCardModal({ isOpen, closeModal, photo }: Props) {
               className="modal__header__profile-name"
               href={photo.user.links.html}
               target="_blank"
+              aria-label="Link to author's unsplash profile page"
             >
               {photo.user.name}
             </a>
@@ -122,6 +125,7 @@ function PhotoCardModal({ isOpen, closeModal, photo }: Props) {
             className="modal__header__close-button"
             onClick={handleCloseModal}
             data-test="photo-card-modal-close"
+            aria-label="Close modal"
           >
             <CloseSVG className="modal__header__close__icon" />
           </button>
@@ -129,27 +133,37 @@ function PhotoCardModal({ isOpen, closeModal, photo }: Props) {
         {/* Modal photo */}
         <Photo photo={photo} inModal />
         {/* Modal contents */}
-        <div className="modal__content">
+        <div className="modal__content" aria-label="Modal content">
           {/* Created date */}
-          <p className="modal__content__created-date">
+          <p
+            className="modal__content__created-date"
+            aria-label="Photo created date"
+          >
             <span>Posted</span>
             <span>{createdDate}</span>
           </p>
 
           {/* Description */}
-          <p className="modal__content__description">
+          <p
+            className="modal__content__description"
+            aria-label="Photo description"
+          >
             <span>Description</span>
             <span>{photo.description ?? "--"}</span>
           </p>
         </div>
-        <div className="modal__footer">
+        <div className="modal__footer" aria-label="Modal footer">
           {/* User social media links */}
-          <div className="modal__footer__author-socials">
+          <div
+            className="modal__footer__author-socials"
+            aria-label="Author's social media"
+          >
             {/* Instagram */}
             {hasInstagram && (
               <a
                 href={`https://www.instagram.com/${photo.user.instagram_username}`}
                 target="_blank"
+                aria-label="Link to author's Instagram page"
               >
                 <InstagramSVG />
               </a>
@@ -159,12 +173,17 @@ function PhotoCardModal({ isOpen, closeModal, photo }: Props) {
               <a
                 href={`https://twitter.com/${photo.user.twitter_username}`}
                 target="_blank"
+                aria-label="Link to author's Twitter page"
               >
                 <TwitterSVG />
               </a>
             )}
             {/* Unsplash */}
-            <a href={photo.user.links.html} target="_blank">
+            <a
+              href={photo.user.links.html}
+              target="_blank"
+              aria-label="Link to author's Unsplash page"
+            >
               <UnsplashSVG />
             </a>
           </div>

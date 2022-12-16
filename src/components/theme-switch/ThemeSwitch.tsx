@@ -82,12 +82,16 @@ function ThemeSwitch() {
   }, []);
 
   let SwitchIcon;
+  let switchAriaLabel;
   switch (theme) {
     case THEME.LIGHT:
       SwitchIcon = <SunSVG />;
+      switchAriaLabel = THEME.DARK;
       break;
+
     case THEME.DARK:
       SwitchIcon = <MoonSVG />;
+      switchAriaLabel = THEME.LIGHT;
       break;
   }
 
@@ -95,6 +99,7 @@ function ThemeSwitch() {
     <button
       className="switch"
       onClick={handleToggleTheme}
+      aria-label={`Switch to ${switchAriaLabel} mode`}
       data-test="theme-switch"
     >
       {SwitchIcon}

@@ -19,6 +19,7 @@ function PhotoCard({ photo }: Props) {
       <button
         className="card"
         onClick={() => setModalOpen(true)}
+        aria-label="Photo card"
         data-test="photo-card"
       >
         <Photo className="card__photo" photo={photo} />
