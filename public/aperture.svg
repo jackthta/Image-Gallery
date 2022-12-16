@@ -6,15 +6,16 @@
       path {
         stroke: #121212;
       }
+    }
 
 
-      @media (prefers-color-scheme: dark) {
+    @media (prefers-color-scheme: dark) {
 
-        circle,
-        path {
-          stroke: #FFFFFF;
-        }
+      circle,
+      path {
+        stroke: #FFFFFF;
       }
+    }
   </style>
 
   <circle cx="128" cy="128" r="96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
