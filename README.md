@@ -12,7 +12,7 @@
 
 <!-- HEADER -->
 <div align="center">
-  <a href="https://github.com/jackthta/Image-Gallery">
+  <a href="https://jackthta.github.io/Image-Gallery">
     <picture>
       <source media="(prefers-color-scheme: light)" srcset="./misc/README_aperture-grey.png"/>
       <source media="(prefers-color-scheme: dark)" srcset="./misc/README_aperture-white.png" />
@@ -23,6 +23,11 @@
   <h1>Image Gallery</h1>
   <p style="margin-top: -10px">A searchable gallery of images</p>
 </div>
+
+<br />
+
+## **Live Demo** 
+[Image Gallery live demo 🔗](https://jackthta.github.io/Image-Gallery/)
 
 <br />
 
@@ -56,7 +61,6 @@ This web application features an infinite scroll image gallery. Search for keywo
 <br />
 
 ### **Built With**
-
 - [![HTML5][html-badge]][html-url]
 - [![CSS3][css-badge]][css-url]
 - [![React][react-badge]][react-url]
