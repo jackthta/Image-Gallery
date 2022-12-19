@@ -1,4 +1,4 @@
-name: Deploy
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -9,14 +9,15 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
+    # Pulls defined environment secrets from GitHub environment `github-pages`
     environment: github-pages
 
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-      - name: Setup Node
-        uses: actions/setup-node@v1
+      - name: Set-up Node
+        uses: actions/setup-node@v3
         with:
           node-version: 16
 
@@ -30,7 +31,7 @@ jobs:
           VITE_UNSPLASH_SECRET_KEY: ${{ secrets.VITE_UNSPLASH_SECRET_KEY }}
 
       - name: Upload production-ready build files
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: production-files
           path: ./dist
@@ -42,8 +43,8 @@ jobs:
     if: github.ref == 'refs/heads/master'
 
     steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v2
+      - name: Download production-ready build files
+        uses: actions/download-artifact@v3
         with:
           name: production-files
           path: ./dist
