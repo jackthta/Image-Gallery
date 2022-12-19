@@ -47,16 +47,15 @@ const SearchBar = ({ input, setInput, onSearch }: Props) => {
       />
 
       {/* Clear search input button */}
-      {input.length > 0 && (
-        <button
-          className="search__clear__button"
-          type="reset"
-          aria-label="Clear search bar input"
-          data-test="search-bar-clear"
-        >
-          <CloseSVG className="search__clear__button__icon" />
-        </button>
-      )}
+      <button
+        className="search__clear__button"
+        style={{ visibility: input.length > 0 ? "visible" : "hidden" }}
+        type="reset"
+        aria-label="Clear search bar input"
+        data-test="search-bar-clear"
+      >
+        <CloseSVG className="search__clear__button__icon" />
+      </button>
     </form>
   );
 };
