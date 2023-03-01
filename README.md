@@ -26,11 +26,6 @@
 
 <br />
 
-## **Live Demo** 
-[Image Gallery live demo 🔗](https://jackthta.github.io/Image-Gallery/)
-
-<br />
-
 <!-- TABLE OF CONTENTS -->
 ## **Table of Contents**
 <ol>
